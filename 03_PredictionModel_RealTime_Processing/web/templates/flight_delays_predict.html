@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>항공 지연 예측</title>
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/bootstrap-theme.min.css" rel="stylesheet">
+  </head>
+
+  <body>
+    <script src="/static/jquery-1.12.2.min.js"></script>
+    <script src="/static/bootstrap.min.js"></script>
+    <!--<script src="/static/d3.v3.min.js"></script>-->
+    <div id="wrap">
+
+      <!-- Begin page content -->
+      <div class="container">
+        <div class="page-header" style="margin: 0px;">
+          <h2>항공 지연 예측 시스템</h2>
+        </div>
+        
+            <!-- Generate form from search_config and request args -->
+  <form id="flight_delay_classification" action="/flights/delays/predict/classify_realtime" method="post">
+    {% for item in form_config %}
+      {% if 'label' in item %}
+        <label for="{{item['field']}}">{{item['label']}}</label>
+      {% else %}
+        <label for="{{item['field']}}">{{item['field']}}</label>
+      {% endif %}
+        <input name="{{item['field']}}" style="width: 36px; margin-right: 10px;" value=""></input>
+    {% endfor %}
+    <button type="submit" class="btn btn-xs btn-default" style="height: 25px">Submit</button>
+  </form>
+
+  <div style="margin-top: 10px;">
+      <p>Delay: <span id="result" style="display: inline-block;"></span></p>
+  </div>
+
+  <!-- Load our form processing javascript -->
+  <script src="/static/flight_delay_predict_polling.js?ver=1.5"></script>
+          
+          
+      </div>
+
+    </div>
+
+
+  </body>
+</html>

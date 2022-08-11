@@ -1,0 +1,21 @@
+{
+"DeliveryStreamName": "test_jang",
+"DeliveryStreamType": "KinesisStreamAsSource",
+"KinesisStreamSourceConfiguration": {
+"KinesisStreamARN": "arn:aws:kinesis:ap-northeast-2:848045215644:stream/datastream_1",
+"RoleARN": "arn:aws:iam::848045215644:role/service-role/KinesisFirehoseServiceRole-KDS-S3-0-ap-northeast-2-1657514886765"
+},
+"S3DestinationConfiguration": {
+"RoleARN": "arn:aws:iam::848045215644:role/service-role/KinesisFirehoseServiceRole-KDS-S3-0-ap-northeast-2-1657514886765",
+"BucketARN": "arn:aws:s3:::jhw620",
+"Prefix": "",
+"BufferingHints": {
+"SizeInMBs": 128,
+"IntervalInSeconds": 300
+},
+"CompressionFormat": "GZIP",
+"EncryptionConfiguration": {
+"NoEncryptionConfig": "NoEncryption"
+}
+} 
+}
